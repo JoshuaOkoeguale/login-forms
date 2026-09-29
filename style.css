@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e7ebf0;
+  overflow: hidden;
+  scrollbar-width: 0.7;
+}
+
+/* Background circles */
+.bg {
+  position: fixed;
+  border-radius: 50%;
+  background: #e7ebf0;
+  box-shadow:
+    15px 15px 30px rgba(163, 177, 198, 0.55),
+    -15px -15px 30px rgba(255, 255, 255, 0.9);
+  z-index: -5;
+  animation: floating 6s ease-in-out infinite;
+}
+
+.bg1 {
+  width: 190px;
+  height: 190px;
+  top: 15%;
+  left: 50%;
+}
+
+.bg2 {
+  width: 130px;
+  height: 130px;
+  bottom: 8%;
+  left:75%;
+  animation-delay: 1.5s;
+}
+
+.bg3 {
+  width: 55px;
+  height: 55px;
+  right: 22%;
+  top: 20%;
+  animation-delay: 3s;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* main card*/
+.auth-wrapper {
+  width: 420px;
+  max-width: 92%;
+  justify-content: center;
+  align-items: center;
+  perspective: 1600px;
+}
+
+.auth-card{
+  position: relative;
+  width: 100%;
+  min-width: 650px;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.auth-card.flipped{
+ transform: rotateY(180deg);
+}
+
+.form-panel{
+  position: absolute;
+  inset: 0;
+  padding: 40px 38px;
+  border-radius: 35px;
+  background: #e7ebf0;
+  box-shadow: 20px 20px 40px rgba(163, 177, 198, 0.65), -20px -20px 40px 
+  rgba(255, 255,255, 0.95);
+  backface-visibility: hidden;
+
+}
+
+.signup-panel{
+ transform: rotateY(180deg);
+}
+
+/*.logo i {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #087cff;
+  text-shadow:
+    2px 2px 4px rgba(163, 177, 198, 0.6),
+    -2px -2px 4px rgba(255, 255, 255, 0.9);
+}
+
+h1 {
+  text-align: center;
+  color: #263238;
+  margin-top: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/*
+.form-panel {
+  width: 70%;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background: #e7ebf0;
+  box-shadow:
+    inset 5px 5px 10px rgba(163, 177, 198, 0.4),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.8);
+}
+
+.input-group label {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #777;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -9px;
+  left: 12px;
+  font-size: 12px;
+  background: #e7ebf0;
+  padding: 0 5px;
+  color: #047c91;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #777;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 25px;
+  font-size: 14px;
+}
+
+.options a {
+  color: #047c91;
+  text-decoration: none;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #047c91;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    5px 5px 10px rgba(163, 177, 198, 0.5),
+    -5px -5px 10px rgba(255, 255, 255, 0.8);
+}
+
+.main-btn:hover {
+  opacity: 0.9;
+}
+
+/* Switch *
+.switch-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 25px 0;
+  font-size: 14px;
+}
+
+.switch-circle {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  background: #047c91;
+}
+
+/* Social buttons *
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.socials button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #e7ebf0;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow:
+    5px 5px 10px rgba(163, 177, 198, 0.4),
+    -5px -5px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Hide signup initially *
+.signup-panel {
+  display: none;
+}*/
+.
